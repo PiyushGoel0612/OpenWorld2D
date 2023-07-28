@@ -1,4 +1,5 @@
 import pygame
+import random as rd
 
 class Mario:
 
@@ -176,3 +177,12 @@ class Bullet:
             self.rect.x += 4
         else:
             self.rect.x -= 4
+
+class Gift:
+
+    def __init__(self,x,y):
+        self.rect = pygame.Rect(x,y,40,40)
+        self.prize = 0   # 0 = Nothing; 1 = bulletx3; 2 = life+1
+
+    def reward(self):
+        self.prize = rd.choice([1,2])
