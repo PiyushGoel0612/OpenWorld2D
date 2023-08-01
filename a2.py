@@ -112,20 +112,13 @@ class Mario:
                 self.jmp_count -= 1
 
             if ptf_c != -1:
-                if self.velocity >= 0:
-                    self.velocity = 0
-                    self.rect.y = self.rect.y + 50 - (self.rect.y % 50)
+                self.velocity = 0
+                self.rect.y = self.rect.y + 50 - (self.rect.y % 50)
+                return ptf_c
 
             elif gnd_c != -1:
-                if self.velocity >= 0:
-                    self.rect.y -= self.velocity - self.accn
-                    self.tmr += 1
-                        
-                    if self.tmr % 2 == 0:
-                        self.velocity -= 1
-                else:
-                    self.rect.y = ground[gnd_c].y - 50
-                    self.jmp_count = 2
+                self.velocity = 0
+                self.rect.y = self.rect.y + 50 - (self.rect.y % 50)
 
             else:
                 self.rect.y -= self.velocity - self.accn

@@ -155,7 +155,12 @@ while run:
                     blt.append(a2.Bullet(m.rect.x,m.rect.y+20,m.Facing))
                     bullet_count -= 1
 
-    m.jump(ground,platf,i_can)
+    blah = m.jump(ground,platf,i_can)
+    if blah != None:
+        lvl1[int(platf[blah].y / 50)][int((platf[blah].x-offset+50)/50 + start)] = 0
+        if lvl1[int((platf[blah].y / 50)-1)][int((platf[blah].x-offset+50)/50 + start)] == 4:
+            lvl1[int((platf[blah].y / 50)-1)][int((platf[blah].x-offset+50)/50 + start)] = 0
+
     m.shoot(m.rect)
 
     i_can = 0
